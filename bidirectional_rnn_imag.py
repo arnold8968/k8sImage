@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May 12 16:08:09 2020
-
-@author: lenovo
-"""
-
 """ Bi-directional Recurrent Neural Network.
 
 A Bi-directional Recurrent Neural Network (LSTM) implementation example using 
