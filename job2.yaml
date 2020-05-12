@@ -1,0 +1,19 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: job3-birnn
+spec:
+  restartPolicy: Never
+  volumes:
+  - name: task-pv-storage
+    persistentVolumeClaim:
+      claimName: pvc1-nfs
+  containers:
+    - name: birnn-test-epoch
+      image: wyan16/birnn
+      command: ["python"]
+      args: ["app.py","/root/torch/job3-torch-vae.csv","job3-birnn"]
+      volumeMounts:
+      - mountPath: "/root/torch"
+        name: task-pv-storage
+
