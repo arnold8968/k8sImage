@@ -1,7 +1,7 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: job3-birnn
+  name: job2-birnn
 spec:
   restartPolicy: Never
   volumes:
@@ -12,7 +12,7 @@ spec:
     - name: birnn-test-epoch
       image: wyan16/birnn
       command: ["python"]
-      args: ["app.py","/root/torch/job3-torch-vae.csv","job3-birnn"]
+      args: ["bidirectional_rnn_imag.py","/root/torch/job2-birnn.csv","job2-birnn"]
       volumeMounts:
       - mountPath: "/root/torch"
         name: task-pv-storage
