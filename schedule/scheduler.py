@@ -214,7 +214,7 @@ def update_working_pods(nodes_pods_dict):
                 nodes_pods_dict[node].remove(pod)
     return nodes_pods_dict
 
-
+import os.path
 
 def main():
     # creat node log
@@ -224,9 +224,13 @@ def main():
     for node in nodes:
         print("the scheduler node: ", node)
         nodes_pods_dict[node] = []
-        f = open("/data/" + node + ".log", "a")
-        f.write("job,time\n")
-        f.close()
+        file_name = "/data/"+node+".log"
+        if os.path.exists(file_name) == False:
+            f = open(file_name, "a")
+            f.write("job,time\n")
+            f.close()
+        else:
+            print("already create the job file")
     w = watch.Watch()
     #Create pod submitted time dict
     pod_submit = {}
