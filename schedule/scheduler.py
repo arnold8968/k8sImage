@@ -220,9 +220,9 @@ def main():
     # creat node log
     nodes_pods_dict = {}
     nodes = nodes_available()
-    
+    print("the available nodes are: ", nodes)
     for node in nodes:
-        
+        print("the scheduler node: ", node)
         nodes_pods_dict[node] = []
         f = open("/data/" + node + ".log", "a")
         f.write("job,time\n")
